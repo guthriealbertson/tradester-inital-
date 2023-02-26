@@ -4,10 +4,12 @@ import "./style.css";
 import About from "./About";
 import Blog from "./Blog";
 import Post from "./Post";
-
-import bull from "/workspaces/tradester-inital-/src/bull.png";
+import Chart from "./Chart.tsx";
+import bull from "/Users/guthriealbertson/vscode/tradester-inital-/src/bull.png";
 
 import "./app.css";
+
+
 
 export default function App() {
   return (
@@ -19,6 +21,7 @@ export default function App() {
             <Route path="post" element={<Post />}></Route>
           </Route>
           <Route index element={<HomePage />}></Route>
+          <Route path="dashboard" element={<Chart />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
@@ -27,10 +30,9 @@ export default function App() {
 
 const HomePage = () => {
   return (
-    <div>
-      <div className="home">
-        <h1>Welcome to tradester</h1>
-      </div>
+    <div className="home">
+      <h1>Welcome to tradester</h1>
+      <Link to="/dashboard">View Dashboard</Link>
     </div>
   );
 };
@@ -39,11 +41,10 @@ const Nav = () => {
   return (
     <div>
       <div className="nav">
-        <h1>
+        <Link className="logo" to="/dashboard">
           Tradester <img src={bull} alt="Logo" />{" "}
-        </h1>
+        </Link>
         <div className="links">
-          <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/blog">Login</Link>
         </div>
